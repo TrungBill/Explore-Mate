@@ -23,7 +23,7 @@ const Header = ({ setCoordinates }) => {
 
   // Load the Google Maps script with the Places library
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_google_maps_key_1,
+    googleMapsApiKey:  import.meta.env.VITE_google_maps_key_1,
     libraries,
   });
 
@@ -57,7 +57,7 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
     setValue(address, false);
     clearSuggestions();
 
-    const results = await getGeocode({ address });
+    const results = await getGeocode({ address });   
     const { lat, lng } = await getLatLng(results[0]);
     setCoordinates({ lat, lng }); // This updates the coordinates in the parent component
   };
