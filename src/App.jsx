@@ -1,0 +1,104 @@
+import {React, useEffect, useState} from 'react'
+import { CssBaseline,Grid } from '@material-ui/core'
+import Header from './components/Header/Header'
+import List from './components/List/List'
+import Map from './components/Map/Map'
+import TestComponent from './components/Test'
+import {getPlaceData} from './api/'
+import Places from './components/Test'
+const App = () => {
+  const [places, setPlaces] = useState([])
+  const [childClicked, setChildClicked] = useState(null)
+
+  const [filteredPlaces, setFilteredPlaces] = useState([])
+
+  const [coordinates, setCoordinates] = useState({}) 
+  const [bounds, setBounds] = useState({})
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  const [type, setType] = useState('restaurants')
+  const [rating, setRating] = useState('')  
+
+  
+  
+
+  
+
+
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
+      setCoordinates({lat:latitude, lng: longitude})
+    })
+  },[]) 
+
+
+  useEffect(() =>{
+    const filteredPlaces = places.filter((place) => place.rating > rating)
+    setFilteredPlaces(filteredPlaces)
+  }, [rating])
+
+  useEffect(() => {
+    console.log('Bounds:', bounds);
+    setIsLoading(true);
+
+    if (bounds.sw && bounds.ne) {
+     
+      getPlaceData(type, bounds.sw, bounds.ne)
+        .then((data) => {
+          console.log('Fetched data:', data); // Check what data is returned
+          setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
+          setFilteredPlaces([]);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+          setIsLoading(false);
+        });
+    }
+  }, [type,bounds]);  
+  
+
+
+
+  
+  return (
+    <>
+
+      <CssBaseline/>
+      <Header setCoordinates={setCoordinates} /> 
+      <Grid container spacing={3} style={{width: '100%'}}>
+          <Grid item xs = {12} md={4}>
+            <List places = {filteredPlaces.length? filteredPlaces: places} 
+                  childClicked = {childClicked}
+                  isLoading = {isLoading}
+                  type = {type}
+                  setType = {setType}
+                  rating = {rating}
+                  setRating = {setRating}
+            />
+
+          </Grid>
+
+          <Grid item xs = {12} md={8}>
+            <Map 
+              setCoordinates = {setCoordinates}
+              setBounds = {setBounds}
+              coordinates = {coordinates}
+              places = {filteredPlaces.length? filteredPlaces: places} 
+              setChildClicked = {setChildClicked}
+              
+            />
+              
+
+          </Grid>
+      </Grid> 
+
+      
+
+    </>
+  )
+}
+
+export default App
