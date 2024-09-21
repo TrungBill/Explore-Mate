@@ -3,9 +3,7 @@ import { CssBaseline,Grid } from '@material-ui/core'
 import Header from './components/Header/Header'
 import List from './components/List/List'
 import Map from './components/Map/Map'
-import TestComponent from './components/Test'
 import {getPlaceData} from './api/'
-import Places from './components/Test'
 const App = () => {
   const [places, setPlaces] = useState([])
   const [childClicked, setChildClicked] = useState(null)
