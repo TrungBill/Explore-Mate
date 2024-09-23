@@ -74,7 +74,7 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
         onChange={(e) => setValue(e.target.value)}
         disabled={!ready}
         className={classes.inputInput}
-        placeholder="Search an address"
+        placeholder="Search new places"
       />
       <ComboboxPopover>
         <ComboboxList className={classes.comboboxList}>
