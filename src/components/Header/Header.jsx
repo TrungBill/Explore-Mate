@@ -31,11 +31,13 @@ const Header = ({ setCoordinates }) => {
   if (!isLoaded) return <div>Loading...</div>;
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" >
       <Toolbar className={classes.toolbar}>
-        <Typography variant="h5" className={classes.title}>
-          Explore Mate
-        </Typography>
+      <div className={classes.logoContainer}>
+          <Typography variant="h5" className={classes.logo}>
+            Explore Mate
+          </Typography>
+        </div>
 
         {/* Pass setCoordinates to PlacesAutocomplete */}
         <PlacesAutocomplete setCoordinates={setCoordinates} className={classes.inputInput} />

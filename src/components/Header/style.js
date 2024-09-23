@@ -7,6 +7,18 @@ export default makeStyles((theme) => ({
       display: 'block',
     },
   },
+  logo: {
+    fontFamily: '"Pacifico", cursive', // Use a fancy font like Pacifico
+    color: theme.palette.common.white, // Set text color to white
+    marginRight: theme.spacing(2),
+    whiteSpace: 'nowrap',  // Add some space between the logo and the search input
+  },
+  logoContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    marginRight: theme.spacing(2), // Add some space between the logo and the search input
+  },
+  
   
   searchContainer: {
     display: 'flex',
