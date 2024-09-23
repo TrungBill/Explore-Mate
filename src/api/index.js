@@ -5,7 +5,7 @@ export const getPlaceData = async (type, sw, ne) => {
 
 
     try {
-        const { data: { data } } = await axios.get(`https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary?`, {
+        const { data: { data } } = await axios.get('https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary', {
             params: {
                 bl_latitude: sw.lat,
                 bl_longitude: sw.lng,
@@ -25,3 +25,26 @@ export const getPlaceData = async (type, sw, ne) => {
         return [];
     }
 };
+
+export const getWeatherData = async (lat, lng) => {
+    try {
+        const { data } = await axios.get(`https://open-weather13.p.rapidapi.com/city/latlon/${lat}/${lng}`, {
+            params: {
+                lon: lng,
+                lat: lat,
+              },
+
+            headers: {
+                'x-rapidapi-key': '933f56daeamshfb94892f490f81cp19a12ejsn88bbfe9bf943',
+                'x-rapidapi-host':  'open-weather13.p.rapidapi.com',
+              }
+        });
+        return data
+        console.log(data)
+    }catch (error) {
+        console.error('Error fetching weather data:', error);
+        return [];
+    }
+};
+
+
