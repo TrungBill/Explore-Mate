@@ -75,7 +75,7 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
         placeholder="Search an address"
       />
       <ComboboxPopover>
-        <ComboboxList>
+        <ComboboxList className={classes.comboboxList}>
           {status === "OK" &&
             data.map(({ place_id, description }) => (
               <ComboboxOption key={place_id} value={description} />

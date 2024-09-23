@@ -7,11 +7,7 @@ export default makeStyles((theme) => ({
       display: 'block',
     },
   },
-  search: {
-    display: 'flex', // Aligns search icon and input side by side
-    alignItems: 'center', // Centers items vertically
-    
-  },
+  
   searchContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -35,13 +31,24 @@ export default makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 2), // Adjusted padding to fit the icon properly
-    transition: theme.transitions.create('width'),
+    transition: theme.transitions.create(['width', 'background-color', 'box-shadow'], {
+      duration: theme.transitions.duration.short,
+    }),
     width: '180px',
     height: '32px', // Makes the input and icon aligned
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: 'transparent', // Make the input background transparent
+    backgroundColor: 'rgba(255, 255, 255, 0.15)', // Slightly transparent background
     color: theme.palette.common.white, // Set text color to white
-    border: '1px solid rgba(255, 255, 255, 0.5)', // White border with transparency
+    border: 'none', // Remove border
+    boxShadow: `0 0 5px ${alpha(theme.palette.common.white, 0.5)}`, // Subtle shadow for depth
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.25)', // Darker background on hover
+    },
+    '&:focus': {
+      backgroundColor: 'rgba(255, 255, 255, 0.25)', // Darker background on focus
+      boxShadow: `0 0 8px ${alpha(theme.palette.common.white, 0.75)}`, // More pronounced shadow on focus
+      outline: 'none', // Remove default outline
+    },
     '&::placeholder': {
       color: 'rgba(255, 255, 255, 0.75)', // White placeholder with slight transparency
     },
@@ -55,5 +62,18 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  comboboxList: {
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(1),
+    '& .combobox-option': {
+      padding: theme.spacing(1),
+      borderRadius: theme.shape.borderRadius,
+      '&:hover': {
+        backgroundColor: alpha(theme.palette.primary.main, 0.1),
+      },
+    },
   },
 }));
