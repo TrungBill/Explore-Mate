@@ -12,6 +12,16 @@ export default makeStyles((theme) => ({
     alignItems: 'center', // Centers items vertically
     
   },
+  searchContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: '100%',
+    marginRight: theme.spacing(2),
+    '& > *:not(:last-child)': {
+      marginRight: theme.spacing(2),
+    },
+  },
   searchIcon: {
     padding: theme.spacing(1),
     height: '100%',

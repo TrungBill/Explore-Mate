@@ -19,12 +19,6 @@ const App = () => {
   const [rating, setRating] = useState('')  
 
   
-  
-
-  
-
-
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: {latitude, longitude}}) => {
       setCoordinates({lat:latitude, lng: longitude})

@@ -14,6 +14,7 @@ import {
 } from '@reach/combobox';
 import useStyles from './style';
 import '@reach/combobox/styles.css';
+import SearchIcon from '@material-ui/icons/Search';
 
 // Define the libraries array outside of the component
 const libraries = ['places'];
@@ -63,7 +64,9 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
   };
 
   return (
-    <Combobox onSelect={handleSelect}>
+    <div className={classes.searchContainer}>
+      <SearchIcon />
+      <Combobox onSelect={handleSelect}>
       <ComboboxInput
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -80,6 +83,8 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
         </ComboboxList>
       </ComboboxPopover>
     </Combobox>
+    </div>
+    
   );
 };
 
