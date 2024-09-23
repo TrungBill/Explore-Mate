@@ -3,9 +3,11 @@ import { CssBaseline,Grid } from '@material-ui/core'
 import Header from './components/Header/Header'
 import List from './components/List/List'
 import Map from './components/Map/Map'
-import {getPlaceData} from './api/'
+import WeatherInfo from './components/Weather/WeatherInfo'
+import {getPlaceData, getWeatherData } from './api/'
 const App = () => {
   const [places, setPlaces] = useState([])
+  const [weatherData, setWeatherData] = useState([])
   const [childClicked, setChildClicked] = useState(null)
 
   const [filteredPlaces, setFilteredPlaces] = useState([])
@@ -35,8 +37,11 @@ const App = () => {
     console.log('Bounds:', bounds);
     setIsLoading(true);
 
-    if (bounds.sw && bounds.ne) {
-     
+    if (bounds.sw && bounds.ne && coordinates.lat && coordinates.lng) {
+      getWeatherData(coordinates.lat, coordinates.lng)
+        .then((data) => { 
+          console.log('Fetched data:', data)
+          setWeatherData(data) })
       getPlaceData(type, bounds.sw, bounds.ne)
         .then((data) => {
           console.log('Fetched data:', data); // Check what data is returned
@@ -49,17 +54,14 @@ const App = () => {
           setIsLoading(false);
         });
     }
-  }, [type,bounds]);  
-  
-
-
-
+  }, [type, bounds, coordinates]);  // Added coordinates as a dependency
   
   return (
     <>
 
       <CssBaseline/>
       <Header setCoordinates={setCoordinates} /> 
+      <WeatherInfo weatherData={weatherData} />
       <Grid container spacing={3} style={{width: '100%'}}>
           <Grid item xs = {12} md={4}>
             <List places = {filteredPlaces.length? filteredPlaces: places} 
@@ -80,7 +82,7 @@ const App = () => {
               coordinates = {coordinates}
               places = {filteredPlaces.length? filteredPlaces: places} 
               setChildClicked = {setChildClicked}
-              
+              weatherData = {weatherData}
             />
               
 
