@@ -31,7 +31,7 @@ const WeatherInfo = ({ weatherData, isLoading }) => {
         <div className='cloud-container'>
             <CloudSvg className='cloud'/>
         </div>
-        <div className = 'location-text'> My Location</div>
+        <div className = 'location-text'> Current Location</div>
         <div className = 'location'>{name}</div>
         <div className = 'temperature'>{Math.round(kelvinToCelsius(temp))}°C</div>
         <div className = 'weather'>{weather[0].main}</div>
