@@ -32,6 +32,7 @@ export const getWeatherData = async (lat, lng) => {
             params: {
                 lon: lng,
                 lat: lat,
+                units: 'metric',
               },
 
             headers: {

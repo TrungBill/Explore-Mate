@@ -41,6 +41,7 @@ const App = () => {
       getWeatherData(coordinates.lat, coordinates.lng)
         .then((data) => { 
           console.log('Fetched data:', data)
+          setIsLoading(false)
           setWeatherData(data) })
       getPlaceData(type, bounds.sw, bounds.ne)
         .then((data) => {
@@ -64,15 +65,15 @@ const App = () => {
      
       <Grid container spacing={3} style={{width: '100%'}}>
           <Grid item xs = {12} md={4}>
-          <WeatherInfo weatherData={weatherData} />
-          {/* <List places = {filteredPlaces.length? filteredPlaces: places} 
+          <WeatherInfo weatherData={weatherData} isLoading={isLoading}/>
+           <List places = {filteredPlaces.length? filteredPlaces: places} 
                   childClicked = {childClicked}
                   isLoading = {isLoading}
                   type = {type}
                   setType = {setType}
                   rating = {rating}
                   setRating = {setRating}
-            /> */}
+            />
 
 
           </Grid>
