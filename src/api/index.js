@@ -36,7 +36,7 @@ export const getWeatherData = async (lat, lng) => {
               },
 
             headers: {
-                'x-rapidapi-key': '933f56daeamshfb94892f490f81cp19a12ejsn88bbfe9bf943',
+                'x-rapidapi-key': import.meta.env.VITE_weather_api,
                 'x-rapidapi-host':  'open-weather13.p.rapidapi.com',
               }
         });
