@@ -61,17 +61,19 @@ const App = () => {
 
       <CssBaseline/>
       <Header setCoordinates={setCoordinates} /> 
-      <WeatherInfo weatherData={weatherData} />
+     
       <Grid container spacing={3} style={{width: '100%'}}>
           <Grid item xs = {12} md={4}>
-            <List places = {filteredPlaces.length? filteredPlaces: places} 
+          <WeatherInfo weatherData={weatherData} />
+          {/* <List places = {filteredPlaces.length? filteredPlaces: places} 
                   childClicked = {childClicked}
                   isLoading = {isLoading}
                   type = {type}
                   setType = {setType}
                   rating = {rating}
                   setRating = {setRating}
-            />
+            /> */}
+
 
           </Grid>
 
@@ -84,7 +86,7 @@ const App = () => {
               setChildClicked = {setChildClicked}
               weatherData = {weatherData}
             />
-              
+           
 
           </Grid>
       </Grid> 
