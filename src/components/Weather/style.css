@@ -45,7 +45,7 @@
 }
 
 .temperature{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: bold;
     margin-top: 5px;
 }
@@ -57,21 +57,21 @@
     margin-top: 5px;
 }
 .location-text{
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-top: 50px;
 }
 .weather{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
 }
 .low-high{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
     margin-top: 5px;
 }
 .humidity{
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold;
     margin-top: 5px;
 }
