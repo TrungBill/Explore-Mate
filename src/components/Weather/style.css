@@ -7,7 +7,7 @@
    
     padding: 20px;
     border-radius: 40px;
-    background: linear-gradient(to bottom, #6a11cb, #2575fc);
+    background: linear-gradient(to bottom, #0e1c26, #2a454b, #294861);
     color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
    
@@ -45,6 +45,14 @@
     margin-top: 30px;
     animation: moveCloud 8s ease-in-out infinite;
 }
+.rain{
+    fill: lightblue;
+    filter: drop-shadow(173, 216, 230, 0.8 0 0 10px);
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
+    animation: moveCloud 8s ease-in-out infinite;
+}
 .cloud-container{
     position: absolute;
     top: 60px;
@@ -70,16 +78,16 @@
     margin-top: 50px;
 }
 .weather{
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 .low-high{
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 5px;
 }
 .humidity{
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 5px;
 }
