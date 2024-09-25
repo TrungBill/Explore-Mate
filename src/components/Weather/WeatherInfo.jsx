@@ -3,6 +3,7 @@ import { Typography, Card, CardContent, Grid, CircularProgress } from '@material
 import './style.css'
 import  MoonSvg  from '../../assets/svgs/moon.svg?react';
 import  CloudSvg  from '../../assets/svgs/cloud.svg?react';
+import  SunSvg  from '../../assets/svgs/sun.svg?react';
 
 
 
@@ -13,6 +14,7 @@ const WeatherInfo = ({ weatherData, isLoading }) => {
     return <div>Loading weather data...</div>;
   }
   const kelvinToCelsius = (kelvin) => (kelvin - 273.15).toFixed(2);
+  const isDay = weatherData.weather[0].icon.includes('d');
   const {
     name,
     weather,
@@ -22,12 +24,8 @@ const WeatherInfo = ({ weatherData, isLoading }) => {
   return (
    
        <div className='weather-info-container'>
-         {isLoading && (
-        <div className="loading-overlay">
-          <CircularProgress size="3rem" />
-        </div>
-      )}
-        <MoonSvg className = 'moon'/>
+         
+        {isDay ? <SunSvg className = 'sun'/> : <MoonSvg className = 'moon'/>}
         <div className='cloud-container'>
             <CloudSvg className='cloud'/>
         </div>
