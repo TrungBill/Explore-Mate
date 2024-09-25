@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   mapContainer: {
-    height: '100vh',
+    height: '100%',
     width: '100%',
   },
   markerContainer: {
