@@ -12,11 +12,12 @@ export default makeStyles((theme) => ({
   },
   container: {
     padding: '25px',
+    
   },
   marginBottom: {
-    marginBottom: '30px',
+    marginBottom: '3px',
   },
   list: {
-    height: '75vh', overflow: 'auto',
+    height: '40vh', overflow: 'auto',
   },
 }));

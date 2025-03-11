@@ -66,14 +66,14 @@ const App = () => {
       <Grid container spacing={3} style={{width: '100%'}}>
           <Grid item xs = {12} md={4}>
           <WeatherInfo weatherData={weatherData} isLoading={isLoading}/>
-          {/* <List places = {filteredPlaces.length? filteredPlaces: places} 
+          { <List places = {filteredPlaces.length? filteredPlaces: places} 
                   childClicked = {childClicked}
                   isLoading = {isLoading}
                   type = {type}
                   setType = {setType}
                   rating = {rating}
                   setRating = {setRating}
-            /> */}
+            /> }
 
 
           </Grid>
