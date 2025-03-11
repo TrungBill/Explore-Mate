@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   mapContainer: {
-    height: '100%',
+    height: '900px',
     width: '100%',
+    paddingTop: '20px',
   },
   markerContainer: {
     position: 'absolute',
