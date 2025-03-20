@@ -49,11 +49,6 @@ const PlaceDetails = ({place, selected, refProp}) => {
               <Typography variant='subtitle2' color='textSecondary'>{award.display_name}</Typography>
             </Box>
         ))}
-
-        
-        
-
-      
               {place?.address && (
               <Typography 
                 gutterBottom 
@@ -114,13 +109,7 @@ const PlaceDetails = ({place, selected, refProp}) => {
                   <WebIcon />Trip Advisor
                 </Button>
 
-              </CardActions>
-
-
-              
-                
-
-                
+              </CardActions>     
             </CardContent>
           </Card>
           

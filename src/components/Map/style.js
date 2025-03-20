@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   mapContainer: {
-    height: '1150px',
+    height: '95vh',
     width: '100%',
     paddingTop: '20px',
   },

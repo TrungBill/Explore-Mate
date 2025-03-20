@@ -1,23 +1,28 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export default makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1), minWidth: 120, marginBottom: '30px',
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-  loading: {
-    height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center',
-  },
+const useStyles = makeStyles((theme) => ({
   container: {
-    padding: '25px',
+    width: '100%',              // Takes up full width of its parent
+    maxWidth: '100%',           // Prevents it from exceeding the viewport
+    padding: theme.spacing(2),  // Responsive padding
+    boxSizing: 'border-box',    // Ensures padding doesn't add to the overall width
+    margin: '0 auto',           // Centers the container if a maxWidth is set later
     
   },
-  marginBottom: {
-    marginBottom: '3px',
-  },
   list: {
-    height: '40vh', overflow: 'auto',
+    maxHeight: '70vh',
+    overflowY: 'auto',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  loading: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
   },
 }));
+
+export default useStyles;

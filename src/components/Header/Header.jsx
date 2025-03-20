@@ -86,7 +86,7 @@ const PlacesAutocomplete = ({ setCoordinates }) => {
       </ComboboxPopover>
     </Combobox>
     </div>
-    
+
   );
 };
 
